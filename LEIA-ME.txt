@@ -1,0 +1,72 @@
+SALES BLACK — CÓDIGO EDITÁVEL
+
+1. Extraia o ZIP inteiro.
+2. Abra index.html no navegador para visualizar.
+3. No editor de código, importe a pasta inteira, mantendo assets ao lado do index.html.
+
+ARQUIVOS
+index.html: estrutura e textos.
+styles.css: cores, fontes, tamanhos e layouts.
+script.js: transição pela rolagem e configuração do vídeo.
+assets/: fotos reais, logo e fonte.
+
+VÍDEO — ONDE ADICIONAR
+A tag <video id="heroVideo"> já está pronta no index.html, com comentários.
+Não adicione uma segunda tag. Escolha UMA das opções:
+
+OPÇÃO RECOMENDADA — script.js:
+1. Coloque seu MP4 na pasta assets com o nome video.mp4.
+2. No começo do script.js, preencha:
+   heroVideoSrc: "assets/video.mp4",
+3. Para URL online, use o endereço direto do arquivo MP4 no mesmo campo.
+   Links de página do YouTube, Instagram ou compartilhamento do Drive não são arquivos diretos.
+4. Opcionalmente preencha heroPosterSrc: "assets/capa.jpg" com uma imagem de espera.
+
+ALTERNATIVA — HTML:
+Deixe heroVideoSrc e heroVideoMobileSrc vazios no script.js e adicione:
+<video id="heroVideo" src="assets/video.mp4" autoplay muted loop playsinline preload="metadata" hidden aria-hidden="true"></video>
+Mantenha os demais atributos e a estrutura de camadas originais.
+
+COMPORTAMENTO
+Desktop: vídeo preenche a capa com object-fit:cover. Pode recortar laterais ou topo/base conforme o formato da tela.
+Mobile: ocupa a capa verticalmente e toca dentro da página, sem forçar tela cheia. O mesmo vídeo é recortado; não é esticado.
+Para um recorte melhor no celular, preencha opcionalmente:
+   heroVideoMobileSrc: "assets/video-mobile.mp4",
+Se vazio, usa o vídeo principal. Ambos tocam sem áudio e repetem em loop.
+Ajuste heroVideoPositionDesktop e heroVideoPositionMobile para posicionar o rosto/ação no recorte (ex.: "65% 45%").
+Prefira MP4/H.264 otimizado. Evite usar um arquivo 4K pesado como fundo.
+O navegador pode bloquear autoplay (economia de energia ou restrições). Nesse caso, a imagem de espera permanece e aparece o controle de reprodução.
+Com preferência de movimento reduzido, não inicia automaticamente.
+As posições e tempos das frases ficam em scenes e são demonstrativos: ajuste aos cortes do vídeo definitivo.
+
+LINKS
+Preencha bookingUrl com o endereço confirmado de agendamento. Preencha servicesUrl quando a seção existir.
+
+Não cole CSS ou JavaScript como texto dentro da página. Importe os arquivos nos locais corretos do projeto.
+
+SERVIÇOS — ATUALIZAÇÃO
+Painéis abrem por clique, toque, Enter/Espaço e setas do teclado. As fotografias de Serviços são ilustrativas e estão em assets/servicos-ilustrativos.png. Os serviços e descrições são provisórios, editáveis no index.html. O destino de agendamento continua aguardando bookingUrl.
+
+CORTES — GALERIA AUTOMÁTICA
+Início automático ao entrar na área visível, sem pressionar. Velocidade mobile: 24 pixels/segundo. Pausa durante arraste/toque, retomada 500ms após soltar; pausa fora da tela e em aba oculta. No desktop, pausa ao passar o mouse e no foco do teclado. Controle por ícone de Pausar/Retomar. Arraste manual e ampliação das fotos. Movimento reduzido desativa o automático. As dez fotos são ILUSTRATIVAS: substituir por cortes reais antes de publicar. Para trocar uma foto, substitua o SVG de cada .cut-open por um <img src="assets/seu-corte.jpg" alt="Descrição do corte">; o modal continua funcionando.
+
+PRODUTOS
+Seleção manual por toque, clique ou setas do teclado. A imagem, o enquadramento, o fundo e os textos mudam sem mover a página. Catálogo provisório em window.SALES_BLACK_PRODUCTS no script.js: altere name, category, description, imageSrc e url. Para usar fotos reais, preencha imageSrc com o caminho da imagem individual. Links comerciais ficam inativos até url ser informado. As embalagens atuais são ilustrações, não produtos reais confirmados.
+
+VISITA E RODAPÉ
+Última seção com foto à esquerda, endereço, horários, agendamento e Como chegar. Dados e foto em SALES_BLACK_CONFIG.visit no script.js. O agendamento usa bookingUrl, compartilhado com os demais botões. Enquanto os links estiverem vazios, não há navegação comercial. Endereço e horários permanecem a confirmar. A foto de encerramento é ilustrativa; substitua por foto real e remova a legenda correspondente quando adequado.
+
+AJUSTES DE TIPOGRAFIA E MOBILE
+Fontes locais Manrope (textos/controles) e Oswald (títulos do Sobre e da galeria). Fotos da capa reposicionadas à direita. Galeria: sem contador/textos de controle, apenas ícone acessível; início imediato quando ao menos 25% da galeria estiver visível. A pausa manual continua acessível por ícone/teclado. O mobile preserva menu, serviços, galeria automática/manual e ampliação, seleção de produtos, contato e agendamento; o Sobre usa fluxo vertical para leitura em telas menores.
+
+REFINAMENTO MOBILE V6
+Sobre: uma foto por capítulo, apresentação com foto e texto lado a lado, sem camada repetida. Serviços: três painéis verticais com conteúdo sempre disponível e zoom gradual vinculado à rolagem; sem scroll bloqueado. Produtos: três opções antes da imagem e da descrição, com altura estável. Contato: foto mais compacta e conteúdo próximo. Setas SVG impedem a conversão em emojis no iPhone. Todos os movimentos respeitam a preferência de movimento reduzido.
+
+REFINAMENTO MOBILE V7
+Sobre dividido em dois capítulos com intervalo e fundo levemente distinto. Assinatura da história acima do título; introdução alinhada ao topo da foto. Propósito e jeito em sequência vertical, com separadores discretos. BLACK, ESTILO e CUIDADO viram tipografia vertical de fundo, sem faixas cortadas no rodapé. Desktop preservado.
+
+ORDEM V8 E FAIXA DE PRODUTOS
+Capa > Produtos > Serviços > Cortes > Sobre > Contato. Produtos agora usam fundo claro. A faixa no topo é editável no HTML; altere o texto nos dois grupos idênticos. Ela navega para Produtos, passa lentamente e tem pausa; não contém descontos não confirmados.
+
+PALETA V9
+Segundo capítulo do Sobre escuro, com texto claro e botão branco. Desktop: cor de fundo acompanha o progresso da transição. Mobile: capítulo escuro em fluxo normal. Demais seções preservadas.
