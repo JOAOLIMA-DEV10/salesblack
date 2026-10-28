@@ -2474,6 +2474,7 @@ body.animated .photo-caption { color:#d0d0cc; }
   .about-watermark { -webkit-text-stroke-color:#fff; opacity:.065; }
 }
 
-.video-controls {
-  display: none !important;
+/* Esconde a barra, mantendo o botão de reprodução */
+.video-controls .track {
+  display: none;
 }

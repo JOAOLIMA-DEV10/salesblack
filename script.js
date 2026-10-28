@@ -230,22 +230,27 @@ window.SALES_BLACK_CONFIG = {
   function selectedVideo() {
     return (mobileVideo.matches && CONFIG.heroVideoMobileSrc) || CONFIG.heroVideoSrc || htmlVideoSrc;
   }
-  function loadHeroVideo() {
-    const src = selectedVideo();
-    if (!src) return;
-    video.muted = true;
-    video.defaultMuted = true;
-    video.autoplay = !reduced.matches;
-    video.src = src;
-    video.poster = poster.src;
-    controls.hidden = false;
-    video.load();
-    if (!reduced.matches)
-      video.play().catch(() => {
-        poster.hidden = false;
-        controls.hidden = false;
-        mediaState();
-      });
+function loadHeroVideo() {
+  const src = selectedVideo();
+  if (!src) return;
+
+  video.muted = true;
+  video.defaultMuted = true;
+  video.autoplay = !reduced.matches;
+  video.src = src;
+  video.poster = poster.src;
+  controls.hidden = false;
+
+  video.hidden = false; // Linha adicionada
+  video.load();
+
+  if (!reduced.matches)
+    video.play().catch(() => {
+      poster.hidden = false;
+      controls.hidden = false;
+      mediaState();
+    });
+
   }
   loadHeroVideo();
   mobileVideo.addEventListener("change", () => {
